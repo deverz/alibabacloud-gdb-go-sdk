@@ -1,3 +1,8 @@
+# Tips
+项目fork自[aliyun/alibabacloud-gdb-go-sdk](https://github.com/aliyun/alibabacloud-gdb-go-sdk)
+主要对logger进行修改，可传入业务自己的logger，方便业务统一日志管理。
+其他不做任何修改。
+
 # Gremlin Go SDK for GDB
 
 GDB Go语言客户端，参考Gremlin Java开源客户端[gremlin-driver](https://github.com/apache/tinkerpop)，

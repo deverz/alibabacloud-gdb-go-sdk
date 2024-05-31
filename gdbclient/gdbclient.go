@@ -27,7 +27,10 @@ import (
 	"unsafe"
 )
 
-func SetLogger(logger *zap.Logger) {
+func SetLogger(logger internal.ILogger) {
+	if logger == nil {
+		return
+	}
 	internal.Logger = logger
 }
 
