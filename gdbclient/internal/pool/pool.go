@@ -16,7 +16,7 @@ package pool
 import (
 	"errors"
 	"fmt"
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/internal"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/internal"
 	"go.uber.org/zap"
 	"math"
 	"os"

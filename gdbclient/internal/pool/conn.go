@@ -16,9 +16,9 @@ package pool
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/graph"
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/internal"
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/internal/graphsonv3"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/graph"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/internal"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/internal/graphsonv3"
 	"github.com/gorilla/websocket"
 	"go.uber.org/zap"
 	"math"
@@ -256,7 +256,7 @@ func (cn *ConnWebSocket) readResponse() {
 				cn._broken = true
 				cn.lastIoError = err
 				_ = cn.notifier != nil && cn.notifier()
-				internal.Logger.Error("conn read broken", zapPtr(cn),zap.Time("time", time.Now()), zap.Error(err))
+				internal.Logger.Error("conn read broken", zapPtr(cn), zap.Time("time", time.Now()), zap.Error(err))
 				return
 			}
 		} else {

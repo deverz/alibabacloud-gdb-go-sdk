@@ -15,8 +15,8 @@ package pool
 
 import (
 	"errors"
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/graph"
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/internal/graphsonv3"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/graph"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/internal/graphsonv3"
 	"github.com/google/uuid"
 	. "github.com/smartystreets/goconvey/convey"
 	"testing"

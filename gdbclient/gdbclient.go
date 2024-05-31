@@ -17,21 +17,25 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/graph"
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/internal"
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/internal/graphsonv3"
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/internal/pool"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/graph"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/internal"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/internal/graphsonv3"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/internal/pool"
 	"go.uber.org/zap"
 	"strconv"
 	"time"
 	"unsafe"
 )
 
-func SetLogger(logger internal.ILogger) {
+func SetMyLogger(logger internal.ILogger) {
 	if logger == nil {
 		return
 	}
 	internal.Logger = logger
+}
+
+func SetLogger(logger *zap.Logger) {
+	internal.Logger = internal.NewDefaultLogger(logger)
 }
 
 //---------------------- Gdb baseClient ---------------------//

@@ -14,7 +14,7 @@
 package gdbclient
 
 import (
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/internal/pool"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/internal/pool"
 	. "github.com/smartystreets/goconvey/convey"
 	"os"
 	"sync"

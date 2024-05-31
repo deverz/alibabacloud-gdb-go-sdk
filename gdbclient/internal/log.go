@@ -21,8 +21,11 @@ type DefaultLogger struct {
 	*zap.Logger
 }
 
-func NewDefaultLogger() *DefaultLogger {
-	return &DefaultLogger{zap.NewExample(zap.AddCaller(), zap.Development())}
+func NewDefaultLogger(zapLogger *zap.Logger) *DefaultLogger {
+	if zapLogger == nil {
+		zapLogger = zap.NewExample(zap.AddCaller(), zap.Development())
+	}
+	return &DefaultLogger{zapLogger}
 }
 
 func (l *DefaultLogger) Info(msg string, fields ...interface{}) {
@@ -53,7 +56,7 @@ func (l *DefaultLogger) toZapFields(fields ...interface{}) []zap.Field {
 	return zapFields
 }
 
-var Logger ILogger = NewDefaultLogger()
+var Logger ILogger = NewDefaultLogger(nil)
 
 type ILogger interface {
 	Info(msg string, fields ...interface{})

@@ -1,5 +1,5 @@
 # Tips
-项目fork自[aliyun/alibabacloud-gdb-go-sdk](https://github.com/aliyun/alibabacloud-gdb-go-sdk)
+项目fork自[aliyun/alibabacloud-gdb-go-sdk](https://github.com/deverz/alibabacloud-gdb-go-sdk)
 主要对logger进行修改，可传入业务自己的logger，方便业务统一日志管理。
 其他不做任何修改。
 
@@ -27,14 +27,14 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 ## Install gdbclient driver
 
 ```
-go get -u github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient
+go get -u github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient
 ```
 or
 ```
 mkdir ${GOROOT}/src/github.com/aliyun
 cd ${GOROOT}/src/github.com/aliyun
-git clone https://github.com/aliyun/alibabacloud-gdb-go-sdk.git
-cd ${GOROOT}/src/github.com/aliyun/alibabacloud-gdb-go-sdk
+git clone https://github.com/deverz/alibabacloud-gdb-go-sdk.git
+cd ${GOROOT}/src/github.com/deverz/alibabacloud-gdb-go-sdk
 go install ./gdbclient
 ```
 

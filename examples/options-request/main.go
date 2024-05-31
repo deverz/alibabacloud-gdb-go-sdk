@@ -15,10 +15,10 @@ package main
 
 import (
 	"flag"
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/graph"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/graph"
 	"log"
 
-	goClient "github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient"
+	goClient "github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient"
 )
 
 var (

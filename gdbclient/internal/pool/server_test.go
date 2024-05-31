@@ -14,7 +14,7 @@
 package pool
 
 import (
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/internal/graphsonv3"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/internal/graphsonv3"
 	"github.com/gorilla/websocket"
 	. "github.com/smartystreets/goconvey/convey"
 	"strings"

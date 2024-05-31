@@ -15,8 +15,8 @@ package gdbclient
 
 import (
 	"errors"
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/graph"
-	"github.com/aliyun/alibabacloud-gdb-go-sdk/gdbclient/internal/graphsonv3"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/graph"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/internal/graphsonv3"
 	"time"
 )
 
