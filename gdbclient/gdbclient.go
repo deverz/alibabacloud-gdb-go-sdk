@@ -19,6 +19,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/graph"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/ilog"
 	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/internal"
 	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/internal/graphsonv3"
 	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/internal/pool"
@@ -28,7 +29,7 @@ import (
 	"unsafe"
 )
 
-func SetMyLogger(logger internal.ILogger) {
+func SetMyLogger(logger ilog.ILogger) {
 	if logger == nil {
 		return
 	}

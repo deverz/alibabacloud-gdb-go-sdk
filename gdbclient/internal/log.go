@@ -15,6 +15,7 @@ package internal
 
 import (
 	"context"
+	"github.com/deverz/alibabacloud-gdb-go-sdk/gdbclient/ilog"
 	"go.uber.org/zap"
 )
 
@@ -47,7 +48,7 @@ func (l *DefaultLogger) Debug(msg string, fields ...interface{}) {
 	l.Logger.Debug(msg, l.toZapFields(fields...)...)
 }
 
-func (l *DefaultLogger) WithContext(ctx context.Context) ILogger {
+func (l *DefaultLogger) WithContext(ctx context.Context) ilog.ILogger {
 	return l
 }
 
@@ -63,12 +64,4 @@ func (l *DefaultLogger) toZapFields(fields ...interface{}) []zap.Field {
 	return zapFields
 }
 
-var Logger ILogger = NewDefaultLogger(nil)
-
-type ILogger interface {
-	Info(msg string, fields ...interface{})
-	Error(msg string, fields ...interface{})
-	Warn(msg string, fields ...interface{})
-	Debug(msg string, fields ...interface{})
-	WithContext(ctx context.Context) ILogger
-}
+var Logger ilog.ILogger = NewDefaultLogger(nil)
