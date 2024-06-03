@@ -13,7 +13,10 @@
 
 package internal
 
-import "go.uber.org/zap"
+import (
+	"context"
+	"go.uber.org/zap"
+)
 
 //var Logger = log.New(os.Stderr, "Gdb: ", log.LstdFlags|log.Lshortfile)
 
@@ -44,6 +47,10 @@ func (l *DefaultLogger) Debug(msg string, fields ...interface{}) {
 	l.Logger.Debug(msg, l.toZapFields(fields...)...)
 }
 
+func (l *DefaultLogger) WithContext(ctx context.Context) ILogger {
+	return l
+}
+
 func (l *DefaultLogger) toZapFields(fields ...interface{}) []zap.Field {
 	var zapFields []zap.Field
 	for _, field := range fields {
@@ -63,4 +70,5 @@ type ILogger interface {
 	Error(msg string, fields ...interface{})
 	Warn(msg string, fields ...interface{})
 	Debug(msg string, fields ...interface{})
+	WithContext(ctx context.Context) ILogger
 }

@@ -14,6 +14,7 @@
 package gdbclient
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -35,6 +36,9 @@ func SetMyLogger(logger internal.ILogger) {
 }
 
 func SetLogger(logger *zap.Logger) {
+	if logger == nil {
+		return
+	}
 	internal.Logger = internal.NewDefaultLogger(logger)
 }
 
@@ -58,17 +62,21 @@ type ClientShell interface {
 	SubmitScriptOptionsAsync(gremlin string, options *graph.RequestOptions) (ResultSetFuture, error)
 }
 
+type SetLogContext interface {
+	WithLogContext(ctx context.Context) *baseClient
+}
+
 // session client support batch submit
 type SessionClient interface {
 	BatchSubmit(func(ClientShell) error) error
-
+	SetLogContext
 	Close()
 }
 
 // session-less client support submit in sync or async, all in auto-transaction
 type Client interface {
 	ClientShell
-
+	SetLogContext
 	Close()
 }
 
@@ -93,6 +101,11 @@ func NewSessionClient(sessionId string, settings *Settings) SessionClient {
 	client.connPool = pool.NewConnPool(settings.getSessionOpts())
 	internal.Logger.Info("new client", zap.String("server", client.String()), zap.Bool("session", client.session), zap.Time("createTime", time.Now()))
 	return client
+}
+
+func (c *baseClient) WithLogContext(ctx context.Context) *baseClient {
+	internal.Logger = internal.Logger.WithContext(ctx)
+	return c
 }
 
 func (c *baseClient) String() string {
